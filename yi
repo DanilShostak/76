@@ -1,0 +1,284 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+
+namespace StreamReaderDemo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StreamReader sr = new StreamReader("1.txt");
+
+            string s;
+
+            while (sr.EndOfStream != true)
+            {
+                s = sr.ReadLine();
+
+                Console.WriteLine(s);
+            }
+
+            sr.Close();
+        }
+
+   }
+}
+
+import java.io.{ get; }
+
+import java.util.{ get; }
+
+public class Solution
+{
+
+    public static void main(String[] args)
+    {
+        
+        Scanner pp = new Scanner(System.in);
+        int n = pp.nextInt();
+
+        for (int i = 0; i < n; i++)
+        {
+            String ip = pp.next();
+            String re1 = "",
+                    re2 = "";
+            for (int j = 0; j < ip.length(); j++)
+            {
+                if (j % 2 == 0)
+                {
+                    re1 += ip.charAt(j);
+                }
+                if (j % 2 == 1)
+                {
+                    re2 += ip.charAt(j);
+                }
+            }
+            System.out.print(re1 + " " + re2);
+            System.out.println("");
+        }
+    }
+}
+
+import java.io.File { get; }
+
+import java.io.IOException { get; }
+
+public class Program
+{
+
+    public static void main(String[] args)
+    {
+
+        // определяем объект для каталога
+        File myFile = new File("C://Пользователи//admin//source//repos//Class1.cs");
+        System.out.println("File name: " + myFile.getName());
+        System.out.println("Parent folder: " + myFile.getParent());
+        if (myFile.exists())
+            System.out.println("File exists"); } 
+        else
+            System.out.println("File not found");
+
+        System.out.println("File size: " + myFile.length());
+        if (myFile.canRead())
+            System.out.println("File can be read"); }
+        else
+            System.out.println("File can not be read");
+
+        if (myFile.canWrite())
+            System.out.println("File can be written");
+        else
+            System.out.println("File can not be written");
+
+        // создадим новый файл
+        File newFile = new File("C://SomeDir//MyFile");
+        try
+        {
+            boolean created = newFile.createNewFile();
+            if (created)
+                System.out.println("File has been created");
+        }
+        catch (IOException ex)
+        {
+
+            System.out.println(ex.getMessage());
+        }
+    }
+}
+
+public class IdentityMatrix
+{
+    private int dimension;
+
+    public IdentityMatrix(int dimension)
+    {
+        this.dimension = dimension;
+     }
+
+    public double getValue(int row, int column)
+    {
+        return row == column ? 1 : 0;
+    }
+}
+
+
+
+
+
+
+//Заменить нулями элементы в строках и столбцах, где имеются нули
+public class Null
+{
+
+    public static void main(String[] args)
+    {
+       
+
+        //Создаем матрицу, выводим, заполняем начальными значениями
+
+        int n = 6;
+        int[][] mas = new int[n][n];
+
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                mas[i][j] = 0;
+
+            }
+
+        }
+        System.out.println();
+        //Заполняем случайными значениями и случайными нулями, выводим для наглядности
+        System.out.println("Массив псевдослучайных чисел с нулевыми элементами");
+        int s = 0;
+
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                mas[i][j] = (int)(Math.random() * (25 - 1));
+                s = i + j;
+                if ((s % 9) == 0)
+                {
+                    mas[i][j] = 0;
+                }
+                System.out.printf("%3d", mas[i][j]);
+            }
+            System.out.println();
+        }
+
+        //Создаем массив для элементов столбцов, заполняем нулями
+        boolean[] mas1 = new boolean[n];
+        for (int i = 0; i < n; i++)
+        {
+            mas1[i] = false;
+        }
+
+        //Присваиваем всем элементам строк, где есть нули, нулевые значения
+        //Номера столбцов, где есть такие элементы сохраняем в отдельный массив, в виде индексов (сам массив - булевский)
+
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                if (mas[i][j] == 0)
+                {
+                    mas1[j] = true;
+
+                    for (int l = 0; l < n; l++)
+                    {
+                        mas[l][j] = 0;
+
+                    }
+
+                }
+            }
+        }
+        
+        System.out.println();
+        for (int j = 0; j < n; j++)
+        {
+
+            System.out.print(mas1[j] + " ");
+        }
+
+        for (int j = 0; j < n; j++)
+        {
+            if (mas1[j] == true)
+            {
+
+                for (int i = 0; i < n; i++)
+                {
+                    mas[j][i] = 0;
+                }
+            }
+        }
+        System.out.println();
+        //Выводим результат
+        System.out.println("Результирующий массив");
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+
+                System.out.printf("%3d", mas[i][j]);
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+
+import java.util.Arrays() ;
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+        int[] mas = new int[100];
+
+        for (int i = 0; i < mas.length; i++)
+        {
+            mas[i] = (int)(Math.random() * 100) + 1;
+        }
+        System.out.println(Arrays.toString(mas));
+        for (int i = 0; i < mas.length; i++)
+        {
+            if (i % 2 == 1)
+            {
+                mas[i] = 0;
+            }
+        }
+        System.out.println(Arrays.toString(mas));
+    }
+}
+
+
+public class Start
+{
+    public static void main(String[] args)
+    {
+        int[][] arr = new int[5][5];
+
+        for (int i = 0; i < arr.length; i++)
+        {
+            arr[i][i] = 1;
+            arr[i][arr.length - 1 - i] = 1;
+        }
+        //вывод результата
+        for (int i = 0; i < arr.length; i++)
+        {
+            for (int j = 0; j < arr.length; j++)
+            {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println("");
+        }
+    }
+}
